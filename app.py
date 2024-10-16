@@ -8,7 +8,7 @@ model_path = 'heart.pkl'
 with open(model_path, 'rb') as file:
     model = pickle.load(file)
 
-app = Flask(__name__)
+app=Flask(__name__,template_folder='Templates')
 
 @app.route('/')
 def home():
