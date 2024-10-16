@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insurance Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 20px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .form-container input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+        .form-container input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .result {
+            font-size: 1.5em;
+            color: #4CAF50;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Insurance Price Prediction</h2>
+        <form action="/predict" method="post">
+
+            <label for="Age">Age:</label>
+            <input type="number" name="Age" required>
+            
+            <label for="Sex">Sex(Male or Female):</label>
+            <input type="character" name="Sex" required>
+            
+            <label for="Chestpaintype">Chest pain Type(ASY or ATA or NAP or TA):</label>
+            <input type="character" name="Chestpaintype" required>
+
+            <label for="RestingBP">Resting BP:</label>
+            <input type="number" name="RestingBP" required>
+
+            <label for="Cholesterol">Cholesterol:</label>
+            <input type="number" name="Cholesterol" required>
+
+            <label for="FastingBS">Fasting BS (Yes or No):</label>
+            <input type="character" name="FastingBS" required>
+
+            <label for="RestingECG">Resting ECG(Normal or LVH or ST):</label>
+            <input type="character" name="RestingECG" required>
+
+            <label for="MaxHR">MaxHR:</label>
+            <input type="number" name="MaxHR" required>
+
+            <label for="ExerciseAngina">ExerciseAngina (Yes or No):</label>
+            <input type="character" name="ExerciseAngina" required>
+
+            <label for="Oldpeak">Oldpeak:</label>
+            <input type="number" step="0.01" name="Oldpeak" required>
+
+            <label for="ST_Slope">ST_Slope (Down or flat or Up):</label>
+            <input type="character" name="ST_Slope" required>
+
+
+             <input type="submit" value="Predict">
+        </form>
+        {% if prediction_text %}
+        <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>
